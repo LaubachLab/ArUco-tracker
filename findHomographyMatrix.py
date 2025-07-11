@@ -34,7 +34,7 @@ def findHomographyMatrix():
         reader = csv.reader(csvfile)
         row = next(reader)
 
-        # must have 7x7 = 49 pairs of "(x, y)"
+        # must have 7x7 = 49 pairs of "(x, y)" for a 7x7 chessboard
         if not len(row) == 49:
             sys.exit(f"{RED}Invalid chessboard input{RESET}")
 
@@ -55,10 +55,10 @@ def findHomographyMatrix():
             x5, y5 = coords[48]
             print(f"{CYAN}Chessboard calibration points (pixels):{RESET}\n({x1:.3f}, {y1:.3f}), ({x2:.3f}, {y2:.3f}), ({x3:.3f}, {y3:.3f}), ({x4:.3f}, {y4:.3f}), ({x5:.3f}, {y5:.3f})")
 
-            # source points of the 4 corners (in pixels)
+            # source points of the 5 points (in pixels)
             pos_src = np.array([[x1, y1], [x2, y2], [x3, y3], [x4, y4], [x5, y5]], dtype = np.float32)
         
-            # destination points of the 4 corners (in squares)
+            # destination points of the 5 points (in squares)
             pos_dst = np.array([[0, 0], [6, 0], [3, 3], [0, 6], [6, 6]], dtype = np.float32)
 
             # compute & ensure valid homography matrix
