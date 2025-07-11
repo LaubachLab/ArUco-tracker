@@ -89,7 +89,7 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# finish & save to csv
+# finish & save to csv (chessboard squares are converted into mm in matlab)
 cap.release()
 out.release()
 cv2.destroyAllWindows()
